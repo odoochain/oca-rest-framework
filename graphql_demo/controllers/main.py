@@ -14,6 +14,7 @@ class GraphQLController(http.Controller, GraphQLControllerMixin):
     @http.route("/graphiql/demo", auth="user")
     def graphiql(self, **kwargs):
         return self._handle_graphiql_request(schema.graphql_schema)
+        # or is schema
 
     # Optional monkey patch, needed to accept application/json GraphQL
     # requests. If you only need to accept GET requests or POST
