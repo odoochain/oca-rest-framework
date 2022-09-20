@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)
 
 {
-    "name": "Extendable",
+    "name": "Extendable Base",
     "summary": """
         Extendable classes registry loader for Odoo""",
     "version": "15.0.1.0.1",

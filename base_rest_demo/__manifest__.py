@@ -16,7 +16,7 @@
         "base_rest_datamodel",
         "base_rest_pydantic",
         "component",
-        "extendable",
+        "extendable_base",
     ],
     "data": [],
     "demo": [],

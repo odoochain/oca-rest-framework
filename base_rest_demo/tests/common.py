@@ -7,7 +7,7 @@ import os
 from odoo.addons.base_rest.controllers.main import _PseudoCollection
 from odoo.addons.base_rest.tests.common import BaseRestCase
 from odoo.addons.component.core import WorkContext
-from odoo.addons.extendable.tests.common import ExtendableMixin
+from odoo.addons.extendable_base.tests.common import ExtendableMixin
 
 DATA_DIR = os.path.join(os.path.realpath(os.path.dirname(__file__)), "data")
 

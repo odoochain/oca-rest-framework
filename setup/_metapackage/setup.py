@@ -15,7 +15,7 @@ setuptools.setup(
         'odoo-addon-base_rest_demo>=15.0dev,<15.1dev',
         'odoo-addon-base_rest_pydantic>=15.0dev,<15.1dev',
         'odoo-addon-datamodel>=15.0dev,<15.1dev',
-        'odoo-addon-extendable>=15.0dev,<15.1dev',
+        'odoo-addon-extendable_base>=15.0dev,<15.1dev',
         'odoo-addon-model_serializer>=15.0dev,<15.1dev',
         'odoo-addon-pydantic>=15.0dev,<15.1dev',
         'odoo-addon-rest_log>=15.0dev,<15.1dev',
