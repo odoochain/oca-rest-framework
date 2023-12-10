@@ -6,7 +6,7 @@
 import json
 import traceback
 
-from werkzeug.urls import url_encode, url_join
+from urllib.parse import urlencode, urljoin
 
 from odoo import exceptions, registry
 from odoo.http import request
@@ -106,8 +106,8 @@ class BaseRESTService(AbstractComponent):
             "model": entry._name,
             "id": entry.id,
         }
-        url = "/web?#%s" % url_encode(url_params)
-        return url_join(base_url, url)
+        url = "/web?#%s" % urlencode(url_params)
+        return urljoin(base_url, url)
 
     @property
     def _log_call_header_strip(self):

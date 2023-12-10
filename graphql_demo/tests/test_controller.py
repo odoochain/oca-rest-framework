@@ -3,7 +3,7 @@
 
 import json
 
-from werkzeug.urls import url_encode
+from urllib.parse import urlencode
 
 from odoo.tests import HttpCase
 from odoo.tests.common import HOST
@@ -28,7 +28,7 @@ class TestController(HttpCase):
         self.authenticate("admin", "admin")
         query = "{allPartners{name}}"
         data = {"query": query}
-        r = self.url_open("/graphql/demo?" + url_encode(data))
+        r = self.url_open("/graphql/demo?" + urlencode(data))
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.headers["Content-Type"], "application/json")
         self._check_all_partners(r.json()["data"]["allPartners"])
@@ -44,7 +44,7 @@ class TestController(HttpCase):
         """
         variables = {"companiesOnly": True}
         data = {"query": query, "variables": json.dumps(variables)}
-        r = self.url_open("/graphql/demo?" + url_encode(data))
+        r = self.url_open("/graphql/demo?" + urlencode(data))
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.headers["Content-Type"], "application/json")
         self._check_all_partners(r.json()["data"]["allPartners"], companies_only=True)
@@ -125,7 +125,7 @@ class TestController(HttpCase):
             }
         """
         data = {"query": query}
-        r = self.url_open("/graphql/demo?" + url_encode(data))
+        r = self.url_open("/graphql/demo?" + urlencode(data))
         self.assertEqual(r.status_code, 405)
         self.assertEqual(r.headers["Content-Type"], "application/json")
         self.assertIn(
