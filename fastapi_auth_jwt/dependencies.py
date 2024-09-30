@@ -207,6 +207,7 @@ class AuthJwtPartner(BaseAuthJwt):
             if not self.allow_unauthenticated or validator.partner_id_required:
                 _logger.info("Could not determine partner from JWT payload.")
                 raise HTTPException(status_code=HTTP_401_UNAUTHORIZED)
+            return env["res.partner"].with_user(uid).browse()
         return env["res.partner"].with_user(uid).browse(partner_id)
 
 
@@ -235,7 +236,7 @@ class AuthJwtOdooEnv(BaseAuthJwt):
             request, response, authorization_header, validator
         )
         uid = validator._get_and_check_uid(payload)
-        return odoo_env(user=uid)
+        return env(user=uid)
 
 
 auth_jwt_authenticated_payload = AuthJwtPayload()
